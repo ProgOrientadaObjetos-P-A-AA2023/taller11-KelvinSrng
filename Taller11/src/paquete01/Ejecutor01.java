@@ -1,23 +1,44 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package paquete01;
 
-/**
- *
- * @author reroes
- */
+import java.util.ArrayList;
+
 public class Ejecutor01 {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        // TODO code application logic here
+        
+        ArrayList<Menu> listado = new ArrayList();
+        
+        // Dos objetos de tipo menú de niños
+        MenuNiños mN1 = new MenuNiños("Niños 01",2,1,1.5);
+        listado.add(mN1);
+        
+        MenuNiños mN2 = new MenuNiños("Niños 02",3,1,1.5);
+        listado.add(mN2);
+        
+        // Un objeto de tipo menú de económico
+        MenuEconomico mE = new MenuEconomico("Econo 001",4,25);
+        listado.add(mE);
+        
+        // Un objeto de tipo menú del día
+        MenuDia mD = new MenuDia("Día 001",5,1,1);
+        listado.add(mD);
+        
+        // Un objeto de tipo menú a la carta
+        MenuCarta mC = new MenuCarta("",6,1.5,2,10);
+        listado.add(mC);
+        
+        for (int i = 0; i < listado.size(); i++) {
+            listado.get(i).calcularValorMenu();
+        }
+        
+        // Un objeto de tipo Cuenta
+        Cuenta c = new Cuenta("René Elizalde",listado,10);
+        c.calcularSubtotal();
+        c.calcularValorTotal();
+        
+        // Presentación de datos
+        System.out.printf("%s\n",c);
     }
-    
     
 }
 // lo que debe presentar
